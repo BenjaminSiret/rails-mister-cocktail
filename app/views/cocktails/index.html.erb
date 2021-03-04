@@ -1,7 +1,16 @@
-<h1>Je suis dans index</h1>
-
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail)%></li>
-  <% end %>
-</ul>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <h1>All our cocktails</h1>
+  <%= link_to 'Add a cocktail',new_cocktail_path %>
+</div>
+<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1485265449635-ca623a55e95c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjR8fGNvY2t0YWlsfGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+  <div class="container d-flex justify-content-space-between">
+    <% @cocktails.each do |cocktail| %>
+    <div class="card-product">
+      <img src="#" />
+      <div class="card-product-infos">
+        <h2><%= link_to cocktail.name, cocktail_path(cocktail)%></h2>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
