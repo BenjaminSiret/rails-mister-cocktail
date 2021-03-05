@@ -2,7 +2,7 @@
   <h1>All our cocktails</h1>
   <%= link_to 'Add a cocktail',new_cocktail_path %>
 </div>
-<div class="banner">
+<div class="banner" style="background-image: url('https://source.unsplash.com/1600x900/?cocktail');">
   <div class="container d-flex justify-content-around">
     <% @cocktails.each do |cocktail| %>
     <div class="card-product">
@@ -13,7 +13,3 @@
     <% end %>
   </div>
 </div>
-
-
-<%= cl_image_tag("https://res.cloudinary.com/dbwsihtcd/image/upload/v1614953932/dvuypjwmeneisiuhuav5.jpg",
-      width: 400, height: 300, crop: :fill) %>
