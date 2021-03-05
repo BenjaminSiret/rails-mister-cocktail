@@ -1,22 +1,25 @@
-<div class="container d-flex justify-content-center m-4">
-  <div class="card justify-content-center" style="width: 36rem; height: 26rem;">
-
-    <div class="card-body justify-content-center">
-      <h1 class="card-title"><%= @cocktail.name  %></h1>
-        <ul>
-          <% @cocktail.doses.each do |dose| %>
-          <li><%= dose.description %> - <%= dose.ingredient.name %> - <%= link_to 'delete', dose_path(dose),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" }%></li>
-          <% end %>
-          <div class="container">
-            <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class:"btn -btn-outline-secondary" %>
+<div class="container justify-content-center">
+  <div class="container m-4" style="display: flex; align-items: center;" >
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 300, crop: :fill %>
+        <div class="container d-flex justify-content-center m-4">
+          <div class="card justify-content-center" style="width: 50rem; height: 19rem;">
+            <div class="card-body justify-content-center">
+              <h1 class="card-title"><%= @cocktail.name  %></h1>
+                <ul>
+                  <% @cocktail.doses.each do |dose| %>
+                  <li><%= dose.description %> - <%= dose.ingredient.name %> - <%= link_to 'delete', dose_path(dose),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" }%></li>
+                  <% end %>
+                  <div class="container">
+                    <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class:"btn -btn-outline-secondary" %>
+                  </div>
+                </ul>
+            </div>
           </div>
-        </ul>
+        <div class="container">
+        <%= link_to "back to list", cocktails_path, class:"btn btn-outline-secondary" %>
+      </div>
     </div>
+  </div>
 </div>
-    <div class="container m-4">
-      <%= link_to "back to list", cocktails_path, class:"btn btn-outline-secondary" %>
-    </div>
-</div>
-
